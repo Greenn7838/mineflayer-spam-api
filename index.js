@@ -1,3 +1,4 @@
+// Express & EventEmitter setting to prevent memory leak log and 24/7 uptime in repl.it
 require('events').EventEmitter.prototype._maxListeners = 100;
 const express = require('express')
 const app = express()
@@ -13,24 +14,26 @@ app.listen(port, () => {
 
 
 var mineflayer = require('mineflayer');
-
-// require('dotenv').config();
+// repl.it doesn't need this package, it has own
+// require('dotenv').config(); 
 
 const config = {
   pin: process.env.PIN
 };
 
+
+// CreateBot function for automatically reconnect
 function createBot() {
-  const bot = mineflayer.createBot({ // Tạo bot
+  const bot = mineflayer.createBot({ // Bot creation - AnarchyVN setting
     host: 'anarchyvn.net',
     port: 25565,
-    username: "YTBnoob_killer", // Đặt tên của proxy bot
-    version: "1.16.4", // Version hiện tại của server
+    username: "YTBnoob_killer", 
+    version: "1.16.4", 
     keepAlive: true,
     checkTimeoutInterval: 60*1000
   });
 
-  bot.on('windowOpen', async (window) => { // Thực hiện khi khung login hiện ra
+  bot.on('windowOpen', async (window) => { // AdvancedLogin plugin login API from MoonVN
     // Sửa dòng leak memory
     window.requiresConfirmation = false;
 
@@ -68,7 +71,7 @@ function createBot() {
     console.log(msg.toString());
   });
 
-  bot.on('spawn', () => {
+  bot.on('spawn', () => { // setInterval spamming
     setInterval(() => { bot.chat(`> https://discord(.)gg/c3d9aBAq8 | Huỷ diệt Tangled và thằng chủ team, hehe!! :smirk: | ${Math.floor(Math.random() * 32767)}${Math.floor(Math.random() * 32767)}`) }, 45*1000);
     setInterval(() => {
       bot.chat(`> No three-sticks, only hammer&sickle, communist go brrrrr | ${Math.floor(Math.random() * 32767)}${Math.floor(Math.random() * 32767)}`)
