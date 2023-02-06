@@ -18,7 +18,7 @@ var mineflayer = require('mineflayer');
 // require('dotenv').config(); 
 
 const config = {
-  pin: process.env.PIN
+  pin: '7 8 9 7'
 };
 
 
@@ -27,8 +27,8 @@ function createBot() {
   const bot = mineflayer.createBot({ // Bot creation - AnarchyVN setting
     host: 'anarchyvn.net',
     port: 25565,
-    username: "YTBnoob_killer", 
-    version: "1.16.4", 
+    username: "", 
+    version: "1.16.5", 
     keepAlive: true,
     checkTimeoutInterval: 60*1000
   });
@@ -72,17 +72,7 @@ function createBot() {
   });
 
   bot.on('spawn', () => { // setInterval spamming
-    setInterval(() => { bot.chat(`> https://discord(.)gg/c3d9aBAq8 | Huỷ diệt Tangled và thằng chủ team, hehe!! :smirk: | ${Math.floor(Math.random() * 32767)}${Math.floor(Math.random() * 32767)}`) }, 45*1000);
-    setInterval(() => {
-      bot.chat(`> No three-sticks, only hammer&sickle, communist go brrrrr | ${Math.floor(Math.random() * 32767)}${Math.floor(Math.random() * 32767)}`)
-    }, 50 * 1000);
-    setInterval(() => {
-      bot.chat(`> Shout out to Mineflayer.js for creating such a great library for JS | ${Math.floor(Math.random() * 32767)}${Math.floor(Math.random() * 32767)}`)
-    }, 60*1000);
-
-    setInterval(() => {
-      bot.chat(`> Trash tournament go brrrr... | Error code: 404 | ${Math.floor(Math.random() * 32767)}${Math.floor(Math.random() * 32767)}`)
-    }, 70 * 1000);
+    
   })
 }
 createBot()
