@@ -23,11 +23,11 @@ const config = {
 
 
 // CreateBot function for automatically reconnect
-function createBot() {
+function createBot(username) {
   const bot = mineflayer.createBot({ // Bot creation - AnarchyVN setting
     host: 'anarchyvn.net',
     port: 25565,
-    username: "", 
+    username: username, 
     version: "1.16.5", 
     keepAlive: true,
     checkTimeoutInterval: 60*1000
@@ -75,7 +75,7 @@ function createBot() {
     
   })
 }
-createBot()
+createBot(`insert bot username here`)
 
 // Login bot với TOKEN Discord
 // client.login(config.token).catch(err => console.log(err));
