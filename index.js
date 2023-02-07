@@ -72,7 +72,9 @@ function createBot(username) {
   });
 
   bot.on('spawn', () => { // setInterval spamming
-    
+    setInterval(() => {
+      bot.chat(`<tin nhắn chat> | [${Math.random()}]`);
+    }, 30 * 1000)
   })
 }
 createBot(`insert bot username here`)
