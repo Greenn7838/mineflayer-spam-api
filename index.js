@@ -64,7 +64,7 @@ function createBot(username) {
 
   bot.on('end', () => { // Log khi bot end
     console.log('reconnect...');
-    setTimeout(() => { createBot() }, 15 * 1000);
+    setTimeout(() => { createBot(username) }, 15 * 1000);
   });
 
   bot.on('message', msg => { // Log message từ chat game
